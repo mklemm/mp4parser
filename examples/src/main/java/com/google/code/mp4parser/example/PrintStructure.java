@@ -1,17 +1,14 @@
 package com.google.code.mp4parser.example;
 
-import com.coremedia.iso.IsoTypeReader;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-
-import com.googlecode.mp4parser.DataSource;
-
 import java.nio.channels.FileChannel;
 import java.util.Arrays;
 import java.util.List;
+
+import com.coremedia.iso.IsoTypeReader;
 
 /**
  * Created by IntelliJ IDEA.
@@ -70,6 +67,8 @@ public class PrintStructure {
                     System.out.println("End of container contents at " + fc.position());
                     System.out.println("  FIN = " + fin);
                 }
+            } else {
+
             }
 
             fc.position(fin);
@@ -83,6 +82,9 @@ public class PrintStructure {
             "mdia",
             "minf",
             "udta",
-            "stbl"
+            "stbl",
+            "mdat"
     );
+
+    void printHex() {}
 }
