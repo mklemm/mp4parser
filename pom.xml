@@ -4,6 +4,13 @@
     <artifactId>mp4parser-project</artifactId>
     <packaging>pom</packaging>
     <version>1.1.18-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+    </dependencies>
     <name>MP4 Parser Project</name>
     <url>http://code.google.com/p/mp4parser/</url>
     <licenses>
@@ -29,6 +36,7 @@
         </profile>
     </profiles>
     <properties>
+        <kotlin.version>1.0.1</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <build>
@@ -79,6 +87,35 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirs></sourceDirs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirs></sourceDirs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
     <scm>
         <url>https://github.com/sannies/mp4parser</url>
